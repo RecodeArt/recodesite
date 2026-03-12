@@ -1,7 +1,9 @@
 .DS_Store
-venv
-*.pyc
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
 *.env
+
 /static/img/trans/*
-/env
-*~

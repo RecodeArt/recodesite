@@ -1,0 +1,19 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@import "minima/skins/{{ site.minima.skin | default: 'classic' }}", "minima/initialize", "bootstrap-responsive", "bootstrap";
+
+.page-content {
+  padding-top: 45px;
+}
+
+#home .wrapper,
+#artwork .wrapper {
+  padding: 0;
+  margin: 0;
+  max-width: none;
+}
+#home .page-content {
+  padding: 0;
+}

@@ -1,0 +1,15 @@
+services:
+  jekyll:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jekyll
+    restart: always
+    # command: "bundle exec jekyll serve --host 0.0.0.0 --watch --livereload"
+    volumes:
+      - ./:/app
+    ports:
+      - 4000:4000
+      - 35729:35729
+    labels:
+      - dev.orbstack.domains=recode.local

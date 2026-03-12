@@ -1,0 +1,67 @@
+---
+layout: base
+body_id: artwork
+---
+
+{% assign document =  site.data.volumes | where: "id", page.source_detail %}
+<div class="row-fluid offset1">
+	<div class="span10" name="display" style="margin-top:150px">
+		<div class="span5" name="image">
+			<img src="{{ page.photo_link }}" width="400" height="400">
+		</div>
+		<div class="span5" name="data" style="margin-top:-20px">
+			<p><h2>{{ page.title }}</h2></p>
+			<p><h3>{{ page.artist }}</h3></p>
+			</br>
+			source: {{ page.source }}</br>
+			{% if document %}
+			source document : <a href="{{ document.url }}" target="_blank">{{ document.id }}</a>
+			{% else %}
+			source document : <a href="{{ document.url }}" target="_blank">{{ page.source }}</a>
+			{% endif %}
+			</br>
+			date:   {{ page.periood }}
+			</br>
+			</br>
+			{% if page.description %}
+			description:
+			</br>
+			{{ page.description }}
+			</br>
+			</br>
+			{% endif %}
+		</div>
+	</div>
+</div>
+</br>
+
+<hr>
+
+
+<div class = "row-fluid offset1">
+		<h3>Translations</h3>
+</div>
+<div class = "row-fluid offset1">
+		<div class="span3"></div>
+		<div class="span3" style="background:#F2F2F2;text-align:center">
+			<h5>Direct Translation</h5>
+			{% for t in translations %}
+			{% if t.category == "direct" %}
+				<p><a href="/translation/{{ t.slug }}">{{ t.artist }}</a></p>
+			{% endif %}
+			{% endfor %}
+		</div>
+		<div class="span3" style="background:#F2F2F2;text-align:center">
+			<h5>Experimental</h5>
+			{% for t in translations %}
+			{% if t['category'] == 'experimental' %}
+				<p><a href="/translation/{{ t.slug }}">{{ t.artist }}</a></p>
+			{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+
+</div>
+
+</br>
+<hr>

@@ -1,0 +1,126 @@
+---
+layout: home
+body_id: home
+---
+
+<div class="hero-unit" align="center" style="padding-top:125px;padding-bottom:75px">
+    <a href="/" align="center" style="margin-top:10">
+        <img src="static/img/recode_logo.png">
+    </a>
+    <h2 align="center">THE RECODE PROJECT</h2>
+    <p>An active archive of computer art.</p>
+    <div class="pull-right">
+        <a href="/alltranslations" class="pull-right" style="color:#AB0000">all translations</a>
+        </br>
+    </div>
+</div>
+
+<div class="row-fluid" style="margin-bottom:30px">
+    <div class="span6 offset1">
+        </br>
+        <p>
+        The ReCode Project is a community-driven effort to preserve computer art by translating it into a modern programming language (<a href="https://p5js.org" target="_blank">p5.js</a>).
+        Every translated work will be available to the public to learn from, share, and build on.
+        </p>
+        <p>The project's main goals are:</p>
+        <ol>
+            <li>Bring pioneering works of computational art back into circulation.</li>
+            <li>Offer a learning resource to contemporary practitioners and educators.</li>
+            <li>Create an active community.</li>
+        </ol>
+        <p></p>
+        <p>Scroll down to browse the collection. To participate, start by reading our <a href="/guide">USER GUIDE</a>.</p>
+    </div>
+
+    <div class="span4 offset1">
+        <h4>Search Artworks &#38 Translations</h4>
+        By Keyword
+        <form class="form-inline" name="keyword_str" action="/search" method="post">
+            <input type="text" class="input" id="keyword" name="keyword" placeholder="Artist, title, year...">
+            <button type="submit" class="btn">Go</button>
+        </form>
+        or Filter
+        <form class="form-inline" name="filter_select" action="/translationslist" method="post">
+            <select name='filter'>
+                <option value="hasTranslation">Has Translation</option>
+                <option value="noTranslation">Awaiting Translation</option>
+                <option value="direct">Direct Translations</option>
+                <option value="experimental">Experimental Translations</option>
+                <option value="artist">Original Artists, A-Z</option>
+                <option value="title">Original Titles, A-Z</option>
+                <option value="translator">Translators, A-Z</option>
+                <option value="js" selected="selected" >Runs in Browser</option>
+            </select>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+
+</div>
+
+
+<div class="row-fluid" style="background-color:#EEE">
+    <div class="span10 offset1">
+        <h3>Current Projects</h3>
+        <p>
+            "Computer Graphics and Art" was a quarterly magazine published between 1976 and 1978. We are using PDF copies of the entire run of the magazine as our starting point for the project. The majority of the artworks have no code published alongside the original result, providing an opportunity for a variety of interpretations and approaches, all of which can become the starting point for a new work.
+        </p>
+        <p>
+            PDFs of the original source documents come from <a href="http://dada.compart-bremen.de" target="_blank">compart</a> via <a href="http://rhizome.org/editorial/2012/sep/25/prosthetic-knowledge-picks-computer-graphics-art-1/" target="_blank">Rhizome</a>.
+        </p>
+    <hr>
+    </br>
+    <!-- jump links -->
+    <div class="row">
+        <div class="span3 offset1"</div>
+            <p>Vol.1 No.1 (unavailable)</p>
+            <p><a href="#v1n2">Vol.1 No.2 (May, 1976)</a></p>
+            <p><a href="#v1n3">Vol.1 No.3 (August, 1976)</a></p>
+            <p><a href="#v1n4">Vol.1 No.4 (November, 1976)</a></p>
+        </div>
+        <div class="span3 offset1"</div>
+            <p><a href="#v2n1">Vol.2 No.1 (February, 1977)</a></p>
+            <p><a href="#v2n2">Vol.2 No.2 (May, 1977)</a></p>
+            <p><a href="#v2n3">Vol.2 No.3 (August, 1977)</a></p>
+            <p><a href="#v2n4">Vol.2 No.4 (November, 1977)</a></p>
+        </div>
+        <div class="span3 offset1"</div>
+            <p><a href="#v3n1">Vol.3 No.1 (February, 1978)</a></p>
+            <p><a href="#v3n2">Vol.3 No.2 (May, 1978)</a></p>
+            <p><a href="#v3n3">Vol.3 No.3 (August, 1978)</a></p>
+            <p><a href="#v3n4">Vol.3 No.4 (November, 1978)</a></p>
+        </div>
+    </div>
+    <hr>
+    </div>
+</div>
+
+<section id="thumbnails">
+    {% for v in site.data.volumes %}
+    <div class="row-fluid">
+        <div id="{{ v.id }}" class="span10 offset1">
+            </br>
+            </br>
+            <h5>
+                {{ v.name }}
+                {% if v.url %}<a href="{{ v.url }}">[PDF]</a>{% endif %}
+            </h5>
+
+            <ul class="thumbnails">
+            {% for a in site.artworks %}
+                {% if a.source_detail == v.id %}
+                    <li>
+                    <div class="thumbnail">
+                        <a href="/artwork/{{ a.slug }}"><img src={{ a.photo_link }}></a>
+                        <div class="caption">
+                            <a href="/artwork/{{ a.slug }}">{{ a.title }}</a>
+                            <strong><p style="color:black">{{ a.artist }}</p></strong>
+                        </div>
+                    </div>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+</section>
