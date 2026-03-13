@@ -96,32 +96,33 @@ body_id: home
 
 <section id="thumbnails">
     {% for v in site.data.volumes %}
-    <div class="row-fluid">
-        <div id="{{ v.id }}" class="span10 offset1">
-            </br>
-            </br>
-            <h5>
-                {{ v.name }}
-                {% if v.url %}<a href="{{ v.url }}">[PDF]</a>{% endif %}
-            </h5>
+      {% assign artworks = site.artworks | where: "source_id", v.id %}
+      {% if artworks.size > 0 %}
+        <div class="row-fluid">
+            <div id="{{ v.id }}" class="span10 offset1">
+                </br>
+                </br>
+                <h5>
+                    {{ v.name }}
+                    {% if v.url %}<a href="{{ v.url }}">[PDF]</a>{% endif %}
+                </h5>
 
-            <ul class="thumbnails">
-            {% for a in site.artworks %}
-                {% if a.source_id == v.id %}
-                {% assign url = "/artwork/" | append: a.slug | relative_url %}
+                <ul class="thumbnails">
+                {% for a in artworks %}
+                    {% assign url = "/artwork/" | append: a.slug | relative_url %}
                     <li>
-                    <div class="thumbnail">
-                        <a href="{{ url }}"><img src="{{ '/assets/img/' | append: a.photo_link | relative_url }}"></a>
-                        <div class="caption">
-                            <a href="{{ url }}">{{ a.title }}</a>
-                            <strong><p style="color:black">{{ a.artist }}</p></strong>
+                        <div class="thumbnail">
+                            <a href="{{ url }}"><img src="{{ '/assets/img/' | append: a.photo_link | relative_url }}"></a>
+                            <div class="caption">
+                                <a href="{{ url }}">{{ a.title }}</a>
+                                <strong><p style="color:black">{{ a.artist }}</p></strong>
+                            </div>
                         </div>
-                    </div>
                     </li>
-                {% endif %}
-            {% endfor %}
-            </ul>
+                {% endfor %}
+                </ul>
+            </div>
         </div>
-    </div>
+        {% endif %}
     {% endfor %}
 </section>
