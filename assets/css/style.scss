@@ -31,3 +31,11 @@
 .thumbnails li img {
   margin: 0px 0px 5px !important;
 }
+
+.thumbnails li a {
+  width: 300px;
+  display: block;
+  overflow: hidden; /* Hide overflow content */
+  white-space: nowrap; /* Prevent text from wrapping */
+  text-overflow: ellipsis; /* Add ellipsis for overflow text */
+}
