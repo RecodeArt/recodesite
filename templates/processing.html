@@ -66,7 +66,7 @@ repo.fetchBranches(function(err, res){
         $("#gh-link").attr("href","http://github.com/matthewepler/ReCode_Project/tree/master/" + contents.path);
 
 
-        contents.fetchContent(function (err, res) {  
+        contents.fetchContent(function (err, res) {
 
            $("#code code").html(contents.rawContent);
            $("#canvas-container h3").html({{ path_url }});
@@ -78,7 +78,7 @@ repo.fetchBranches(function(err, res){
 });
 </script>
 
-   
+
 <div class="container">
     <div class="span10 offset1" style="margin-top:100px">
         {% for f in translation.files %}
@@ -103,8 +103,8 @@ repo.fetchBranches(function(err, res){
             <code style="white-space:pre;">
             </code>
         </div>
-      
 
-        
+
+
 
 {% endblock %}

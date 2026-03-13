@@ -74,7 +74,6 @@ html_files.each do |html_path|
   source = sanitize_text(extract_first(content, /source:\s*(.*?)\s*<\/br>/im))
 
   source_match = content.match(/source document:\s*<a\s+href="([^"]+)"[^>]*>(.*?)<\/a>/im)
-  source_link = source_match ? source_match[1].strip : ""
   source_id = source_match ? sanitize_text(source_match[2]) : ""
 
   photo_link = extract_first(content, /<img\s+src="\.\.\/static\/img\/(cards\/[^"]+)"/i)
@@ -92,7 +91,6 @@ html_files.each do |html_path|
     artist: #{yaml_quote(artist)}
     source: #{yaml_quote(source)}
     source_id: #{yaml_quote(source_id)}
-    source_link: #{yaml_quote(source_link)}
     photo_link: #{yaml_quote(photo_link)}
     code_link:
     slug: #{yaml_quote(slug)}
