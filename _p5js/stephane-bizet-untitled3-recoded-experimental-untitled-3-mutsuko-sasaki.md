@@ -12,7 +12,7 @@ runs_in_browser: true
 <script type="text/javascript">
 /*
 Part of the ReCode Project (http://recodeproject.com)
-Based on "Untitled 3" by Mutsuko Sasaki
+Based on "Untitled 3" by Mutsuko K. Sasaki
 Originally published in "Computer Graphics and Art" v3n3, 1978
 Copyright (c) 2013 Stéphane Bizet - OSI/MIT license (http://recodeproject/license).
 */

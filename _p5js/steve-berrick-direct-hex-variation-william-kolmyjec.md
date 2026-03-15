@@ -12,7 +12,7 @@ runs_in_browser: true
 <script type="text/javascript">
 /*
 Part of the ReCode Project (http://recodeproject.com)
-Based on "Hex Variation" by William Kolmyjec
+Based on "Hex Variation" by William Kolomyjec
 Originally published in "Computer Graphics and Art" vol3 no4, 1978
 Copyright (c) 2012 Steve Berrick - OSI/MIT license (http://recodeproject/license).
 */

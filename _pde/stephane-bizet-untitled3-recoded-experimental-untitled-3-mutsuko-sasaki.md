@@ -8,10 +8,11 @@ category: "experimental"
 description: "The two function called f(t) and g(t) in the magazine are unknown. I tried a few functions with different parameters. Two parameters can be changed with mouseX and mouseY."
 runs_in_browser: true
 ---
+
 <script type="text/processing">
-/* 
+/*
 Part of the ReCode Project (http://recodeproject.com)
-Based on "Untitled 3" by Mutsuko Sasaki
+Based on "Untitled 3" by Mutsuko K. Sasaki
 Originally published in "Computer Graphics and Art" v3n3, 1978
 Copyright (c) 2013 Stéphane Bizet - OSI/MIT license (http://recodeproject/license).
 */
@@ -47,7 +48,7 @@ void draw(){
       float radiusTransformY = radius+(radius/2)*(1-radius/200);
       x = xc + (radiusTransformX * cos(rad));
       y = yc + (radiusTransformY * sin(rad));
-      point(x,y); 
+      point(x,y);
     }
   }
 }

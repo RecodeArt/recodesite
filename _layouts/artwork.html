@@ -5,13 +5,16 @@ body_id: artwork
 
 {% assign document = site.data.volumes | find: "id", page.source_id  %}
 <div class="row-fluid offset1">
-	<div class="span10" name="display" style="margin-top:150px">
+  <div class="span12" name="display" style="margin-top: 50px;">
 		<div class="span5" name="image">
 			<img src="{{ '/assets/img/' | append: page.photo_link | relative_url }}" width="400" height="400">
 		</div>
 		<div class="span5" name="data" style="margin-top:-20px">
 			<p><h2>{{ page.title }}</h2></p>
-			<p><h3>{{ page.artist }}</h3></p>
+
+			{% assign artist = site.artists | find: "name", page.artist %}
+			{% assign url = "/artists/" | append: artist.slug | relative_url %}
+			<p><h3><a href="{{ url }}">{{ page.artist }}</a></h3></p>
 			</br>
 			source: {{ page.source }}
 			{% if document %}

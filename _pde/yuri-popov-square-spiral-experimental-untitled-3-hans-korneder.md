@@ -3,7 +3,7 @@ title: "Square Spiral"
 translator: "Yuri Popov"
 translator_url: ""
 slug: "yuri-popov-square-spiral-experimental-untitled-3-hans-korneder"
-artwork_slug: "v3n2-untitled-3-Korneder"
+artwork_slug: "v3n2-untitled-3-korneder"
 category: "experimental"
 description: ""
 runs_in_browser: true

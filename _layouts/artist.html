@@ -3,4 +3,21 @@ layout: base
 body_id: artist
 ---
 
-<div class="row-fluid">Artist: {{ page.name }}</div>
+<div class="row-fluid offset1">
+  <div class="span12" name="display" style="margin-top: 50px; margin-bottom: 50px">
+    <h2>{{ page.name }}</h2>
+  </div>
+</div>
+<div class="row-fluid offset1">
+  <div class="span12">
+    {% assign artworks = site.artworks | where: "artist", page.name %}
+    <ul>
+      {% for a in artworks %}
+      <li>
+        {% assign url = "/artwork/" | append: a.slug | relative_url %}
+        <a href="{{ url }}">{{ a.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

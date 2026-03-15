@@ -3,7 +3,7 @@ title: "Untitled 6"
 translator: "Corneel Cannaerts"
 translator_url: "http://introspector.be/"
 slug: "corneel-cannaerts-untitled-6-direct-untitled-6-hans-korneder"
-artwork_slug: "v3n2-untitled-6-Korneder"
+artwork_slug: "v3n2-untitled-6-korneder"
 category: "direct"
 description: "//made during Processing Ghent Recode Workshop //Corneel Cannaerts @introspect0r"
 runs_in_browser: true

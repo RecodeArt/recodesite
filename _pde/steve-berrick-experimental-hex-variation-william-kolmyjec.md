@@ -8,10 +8,11 @@ category: "experimental"
 description: ""
 runs_in_browser: true
 ---
+
 <script type="text/processing">
-/* 
+/*
 Part of the ReCode Project (http://recodeproject.com)
-Based on "Hex Variation" by William Kolmyjec
+Based on "Hex Variation" by William Kolomyjec
 Originally published in "Computer Graphics and Art" vol3 no4, 1978
 Copyright (c) 2012 Steve Berrick - OSI/MIT license (http://recodeproject/license).
 */
@@ -23,10 +24,10 @@ int _size = 20;     // hexagon radius
 int mod = 2;
 
 void setup() {
-  
+
   size(_width, _height);
   noLoop();
-  
+
   background(255);
   noFill();
   stroke(0);
@@ -38,11 +39,11 @@ void draw() {
 
   // clear background
   background(255);
-  
+
   // line length (hypotenuse)
   float h = sin(THIRD_PI) * _size;
   int r = 0;
-  
+
   for (int i = 0; i <= _width / (_size * 3); i++) {
     for (int j = 0; j <= (_height / h) + 1; j++) {
 
@@ -54,36 +55,36 @@ void draw() {
         x += _size * 1.5;
       }
       r++;
-      
+
       pushMatrix();
-      
+
       translate(x, y);
-        
+
       // random hexagon rotation (0, 120, 240 degrees)
       rotate(r % mod * THIRD_PI);
-    
+
       // draw line
       line(0, -h, 0, h);
-  
+
       // draw arcs
       arc(-_size, 0, _size, _size, -THIRD_PI,     THIRD_PI);
-      arc( _size, 0, _size, _size,  THIRD_PI * 2, THIRD_PI * 4); 
-      
+      arc( _size, 0, _size, _size,  THIRD_PI * 2, THIRD_PI * 4);
+
       popMatrix();
 
-    }  
+    }
   }
 
 }void mousePressed() {
-  
+
   redraw();
 
 }
 
 void mouseMoved() {
-   
+
   mod = (mouseX % width / (_size * 3)) + 1;
   redraw();
-   
+
 }
 </script>
