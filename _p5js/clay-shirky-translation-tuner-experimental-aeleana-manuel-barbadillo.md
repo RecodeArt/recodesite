@@ -7,6 +7,7 @@ artwork_slug: "v1n2-aeleana"
 category: "experimental"
 description: "Reading Makio135's code, I noticed that the number 25 had been used many times to tune the output, appearing in the increasingly complex instructions for drawing various rectangles. The relevant lines are: pg.rect(-125, -100, Size+25, Size, 25, 25); pg.rect(-125, -100, Size, Size-25, 25, 25); pg.rect(-125, -125, Size/2+25, 175-i*25, 25, 25); pg.rect(0, -Size/2+i*25, Size/2-i*25, (i==0)?Size/2:Size-(2*i)*25, (Size/2-i*25>25)?25:15, (Size/2-i*25>25)?25:15); I changed all those 25s to a variable, which I called 'tune' on the sense that this number tuned the drawing to the output Makio135 wanted. I added a second variable, called 'tuneStep', which adjusts increases to 'tune', and then I tied that math to mouse clicks: void mousePressed() { tune += tuneStep; } I set both tune and tuneStep to 5, which means that, after 4 clicks, you get Makio135's homage to Barbadillo's original image, but values of tune other than 25 make strikingly different layouts. (The screenshot is 'tune = 5', the initial condition of the modified sketch.)"
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

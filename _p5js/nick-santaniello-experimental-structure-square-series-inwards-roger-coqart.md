@@ -7,6 +7,7 @@ artwork_slug: "v1n3-structure-square-series-inwards"
 category: "experimental"
 description: 'Partially derived from Greg Borenstein''s translation of Roger Coqart''s "Structured Square Series -- Inwards"'
 runs_in_browser: false
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

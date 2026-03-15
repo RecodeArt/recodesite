@@ -7,6 +7,7 @@ artwork_slug: "v2n2-untitled-serigraphs"
 category: "experimental"
 description: "Copyright (c) 2013 Alba Francesca Battista - OSI/MIT license (http: //recodeproject/license)."
 runs_in_browser: false
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

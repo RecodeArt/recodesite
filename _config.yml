@@ -25,7 +25,7 @@ include:
 collections:
   artworks:
     output: true
-    permalink: /artwork/:slug
+    permalink: /artworks/:slug
     sort_by: position
   p5js:
     output: true

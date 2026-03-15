@@ -7,6 +7,7 @@ artwork_slug: "v3n2-untitled-6-schneeberger"
 category: "direct"
 description: 'Untitled #5 is part of a 10 piece series, intended to test viewers perception of art and composition. The section is titled "Experimental Esthetics with Computer Graphics -- Analyses of Viewers Impressions of Computer Graphics."'
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

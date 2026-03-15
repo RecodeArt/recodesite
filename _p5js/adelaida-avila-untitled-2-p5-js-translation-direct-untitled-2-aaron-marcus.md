@@ -7,6 +7,7 @@ artwork_slug: "v3n2-untitled-2-marcus"
 category: "direct"
 description: "Composition done in P5.js recreating Untitled 2 composition made by Aaron Marcus in 1978."
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">
@@ -18,7 +19,7 @@ Copyright (c) 2022 Adelaida Avila - OSI/MIT license (http://recodeproject/licens
 */
 
 //Composition recreating "Untitled 2", from the Hieroglyph series  by Aaron Marcus, 1978.
-//Retrieved from the ReCode project: http://recodeproject.com/artwork/v3n2untitled-2-marcus
+//Retrieved from the ReCode project: http://recodeproject.com/artworks/v3n2untitled-2-marcus
 //made by Adelaida Avila Cabrera, March 2022.
   let numElements = 6;
 

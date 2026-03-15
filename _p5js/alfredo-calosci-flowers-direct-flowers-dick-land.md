@@ -7,6 +7,7 @@ artwork_slug: "v3n2-flowers"
 category: "direct"
 description: "[C] show construction lines [N] cleaup Canvas [S] Save Canvas as png https://www.openprocessing.org/sketch/891937"
 runs_in_browser: false
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

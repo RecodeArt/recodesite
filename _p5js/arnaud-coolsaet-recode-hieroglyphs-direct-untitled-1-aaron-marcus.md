@@ -7,6 +7,7 @@ artwork_slug: "v3n2-untitled-marcus1"
 category: "direct"
 description: "You can set incrementBoxes to false to distribute the squares according to a fixed range throughout the sketch. If set to true (default) the range widens as more boxes appear, mimicking the original that ends up cluttered with white boxes. - my first Processing sketch :)"
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

@@ -7,6 +7,7 @@ artwork_slug: "v2n3-untitled-2"
 category: "direct"
 description: "This sketch simply creates the four patterns of the second image in the article from the pattern presets given below. Press any key to switch between patterns."
 runs_in_browser: false
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

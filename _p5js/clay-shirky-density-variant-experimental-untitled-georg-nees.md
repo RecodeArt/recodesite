@@ -7,6 +7,7 @@ artwork_slug: "v1n2-untitled18"
 category: "experimental"
 description: "I am interested in the smallest changes that can be made to a sketch that leave the original gesture recognizable, but generate visibly different output. In this case, I took Allick's re-coding of Nees' work and varied only one thing -- the minimum and maximum number of lines to be drawn. This affects the script on only one line: for( int i = 0; i This is the code that counts off the number of lines to be be drawn in each circle. Allick has min set to 100 and max to 300, producing a density that mirrors Nees's. I altered the instructions to produce between 1 (min = 1) and 10,000 (max = 10000) lines. The result preserves the large composition -- four circles visible as the cumulative end points of straight lines -- but makes the variation between the circles quite different. At the low end, there are so few lines you can lose track of a circle, and at the high end, you can lose track of the individual lines. This outcome is less graphically balanced (and less interesting to look at) than the original, but demonstrates how much flexibility there is, within a working sketch, for minor alteration of the defaults."
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

@@ -6,7 +6,8 @@ slug: "nick-santaniello-direct-zup-tze-30-paul-shao"
 artwork_slug: "v3n2-zup-tze-30"
 category: "direct"
 description: "None"
-runs_in_browser:
+runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

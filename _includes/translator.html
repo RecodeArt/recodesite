@@ -1,0 +1,14 @@
+{% assign artwork = site.artworks | find: "slug", page.artwork_slug %} {% assign artist = site.artists | find: "name", artwork.artist %} {% assign artist_url = "/artists/" | append: artist.slug | relative_url %} {% assign artwork_url = "/artworks/" | append: artwork.slug | relative_url %}
+<div class="row-fluid offset1">
+  <div class="span12" style="margin-top: 50px">
+    <div id="basic-info">
+      <h2>{{page.title}}</h2>
+      <h3>Translated by <a href="{{ page.translator_url }}" target="_blank">{{ page.translator }}</a></h3>
+      <p><strong>Based on: </strong><a href="{{ artwork_url }}">{{ artwork.title }}</a> by <a href="{{ artist_url }}">{{ artist.name }}</a></p>
+      <p><strong>Category: </strong>{{ page.category }}</p>
+      {% if page.description != "" %}
+      <p>{{ page.description }}</p>
+      {% endif %}
+    </div>
+  </div>
+</div>

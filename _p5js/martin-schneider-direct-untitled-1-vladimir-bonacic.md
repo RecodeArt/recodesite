@@ -7,6 +7,7 @@ artwork_slug: "v2n3-untitled-1"
 category: "direct"
 description: "Click the canvas, then any key to redraw."
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

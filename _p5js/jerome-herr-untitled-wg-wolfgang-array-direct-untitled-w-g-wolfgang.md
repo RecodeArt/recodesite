@@ -7,6 +7,7 @@ artwork_slug: "v1n4-untitled-5"
 category: "direct"
 description: "No more than 4 same symbols in a row vertically and no more than 2 same symbols in a row horizontally. (Please delete my previous submission)"
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

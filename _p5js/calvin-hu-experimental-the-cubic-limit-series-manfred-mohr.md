@@ -6,7 +6,8 @@ slug: "calvin-hu-experimental-the-cubic-limit-series-manfred-mohr"
 artwork_slug: "v1n2-the-cubic-limit-series"
 category: "experimental"
 description: "None"
-runs_in_browser:
+runs_in_browser: false
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

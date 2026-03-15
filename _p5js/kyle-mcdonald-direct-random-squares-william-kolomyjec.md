@@ -7,6 +7,7 @@ artwork_slug: "v2n3-random-squares"
 category: "direct"
 description: "Image shown is a cropped version of full output."
 runs_in_browser: false
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

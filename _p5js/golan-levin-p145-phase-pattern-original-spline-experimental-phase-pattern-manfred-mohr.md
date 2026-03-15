@@ -7,6 +7,7 @@ artwork_slug: "v1n4-phase-pattern"
 category: "experimental"
 description: 'This is the second of my ports of Manfred Mohr''s two plotter drawings, "P145 - Phase Pattern" (1973). These were first published in Catalog Manfred Mohr, "Drawings Dessins Zeichnungen Dibujos", Galerie Weiller, Paris and Galerie Gilles Gheerbrant, Montreal, 1974, and Re-published in "Computer Graphics and Art" Vol.1 No.4, 1976. The originals, whose algorithm was described by Mohr at http://www.emohr.com/sc69-73/vfile_145.html, are ink on paper, 50cm x 50cm. This ProcessingJS port uses Bezier curves to duplicate, to the best of my abilities, the exact 3rd-degree splines used in Mohr''s originals. The randomization technique by which Mohr generated these curves is unknown, and in the absence of other information about his method I have not attempted to invent one.'
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

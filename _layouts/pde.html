@@ -3,4 +3,25 @@ layout: base
 body_id: translation
 ---
 
-{{ content }}
+{%- include translator.html -%}
+
+<div id="sketch" class="row-fluid offset1">
+  <div class="span12">
+    {% if page.runs_in_browser %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing.min.js" integrity="sha512-9Wv23xRhYo/PGUu3uEkm/IxfBtJ4EUgMNvTbOsB8NKVCKmepfTvHv0nXmvMxy/AZoKeG8EbwdJzxqJBIaKPesA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    {{ content }}
+
+    <canvas id="sketch" name="sketch" style="border: 1px solid black; image-rendering: -webkit-optimize-contrast !important"></canvas>
+    {% else %}
+    <p>This script can't be run in browser, you need to copy/paste it in Processing application</p>
+    {% endif %}
+  </div>
+</div>
+
+<div id="jscode" class="row-fluid offset1">
+  <div class="span12">
+    <textarea id="code" style="width: 90%; height: 400px; font-family: monospace; font-size: 14px" readonly>
+      {{ page.script }}
+    </textarea>
+  </div>
+</div>

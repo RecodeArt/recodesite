@@ -7,6 +7,7 @@ artwork_slug: "v3n2-untitled-4-schneeberger"
 category: "experimental"
 description: 'Added randomizations to the Direct Translation on the gridSize and density variables. Every "Run" builds a different image.'
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

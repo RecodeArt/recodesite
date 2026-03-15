@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: base
 body_id: home
 ---
 
@@ -102,7 +102,7 @@ body_id: home
 
                 <div class="artworks thumbnails">
                 {% for a in artworks %}
-                    {% assign url = "/artwork/" | append: a.slug | relative_url %}
+                    {% assign url = "/artworks/" | append: a.slug | relative_url %}
                         <div class="thumbnail">
                             <a href="{{ url }}"><img src="{{ '/assets/img/' | append: a.photo_link | relative_url }}"></a>
                             <div class="caption">

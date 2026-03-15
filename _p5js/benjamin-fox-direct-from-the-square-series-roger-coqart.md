@@ -7,6 +7,7 @@ artwork_slug: "v2n4-from-the-square-series"
 category: "direct"
 description: "Commissioned for Rhizome.org"
 runs_in_browser: false
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

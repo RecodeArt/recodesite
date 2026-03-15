@@ -7,6 +7,7 @@ artwork_slug: "v2n3-organic-illusion"
 category: "direct"
 description: "Image is a cropped version of full output. Source document includes code excerpts."
 runs_in_browser: false
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

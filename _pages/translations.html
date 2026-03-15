@@ -1,17 +1,17 @@
 ---
 layout: page
 title: Translations
-permalink: /alltranslations
+permalink: /translations
 ---
 
 <div class="row-fluid">
-  <ol class="thumbnails">
-    {% for t in site.p5js %} {% assign artwork = site.artworks | find: "slug", t.artwork_slug %}
+  <ul>
+    {% for t in site.p5js %} {% assign artwork = site.artworks | find: "slug", t.artwork_slug %} {% assign artwork_url = "/artworks/" | append: artwork.slug | relative_url %}
     <li>
       {% assign url = "/translations/p5js/" | append: t.slug | relative_url %}
 
-      <a href="{{ url }}">{{ t.title }}</a> by {{ artwork.artist }} &bull; Translated by {{t.translator }} [{{t.category}}]
+      <a href="{{ url }}">{{ t.title }}</a> by {{t.translator }} &dash; {{ t.category }} translation of <a href="{{ artwork_url }}">{{ artwork.title }}</a>
     </li>
     {% endfor %}
-  </ol>
+  </ul>
 </div>

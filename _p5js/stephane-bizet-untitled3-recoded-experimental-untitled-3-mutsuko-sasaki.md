@@ -7,6 +7,7 @@ artwork_slug: "v3n3-untitled-3-sasaki"
 category: "experimental"
 description: "The two function called f(t) and g(t) in the magazine are unknown. I tried a few functions with different parameters. Two parameters can be changed with mouseX and mouseY."
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

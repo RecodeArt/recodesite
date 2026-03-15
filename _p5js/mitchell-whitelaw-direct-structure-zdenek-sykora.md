@@ -6,7 +6,8 @@ slug: "mitchell-whitelaw-direct-structure-zdenek-sykora"
 artwork_slug: "v1n2-structure"
 category: "direct"
 description: "Click in frame to refresh."
-runs_in_browser:
+runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

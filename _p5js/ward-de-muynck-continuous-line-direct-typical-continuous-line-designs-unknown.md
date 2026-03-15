@@ -7,6 +7,7 @@ artwork_slug: "v2n3-typical-continuous-line-designs"
 category: "direct"
 description: "A continuous line"
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

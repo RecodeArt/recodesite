@@ -7,6 +7,7 @@ artwork_slug: "v1n2-detail-from-tapestry"
 category: "direct"
 description: 'A free adaptation/interpretation of the original piece, with a bit of extra "little variation"'
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

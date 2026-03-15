@@ -14,7 +14,7 @@ body_id: artist
     <ul>
       {% for a in artworks %}
       <li>
-        {% assign url = "/artwork/" | append: a.slug | relative_url %}
+        {% assign url = "/artworks/" | append: a.slug | relative_url %}
         <a href="{{ url }}">{{ a.title }}</a>
       </li>
       {% endfor %}

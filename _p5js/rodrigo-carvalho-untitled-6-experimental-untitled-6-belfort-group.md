@@ -7,6 +7,7 @@ artwork_slug: "v1n3-untitled-6"
 category: "experimental"
 description: 'Recoding of "Untitled 6" by Belfort Group Published originaly in "Computer Graphics and Art" 1976 When the code starts it draws the original artwork. When the SPACE is pressed variations of the original are created.'
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

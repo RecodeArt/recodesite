@@ -7,6 +7,7 @@ artwork_slug: "v3n4-hex-variation"
 category: "direct"
 description: "Move the mouse inside the canvas to redraw."
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

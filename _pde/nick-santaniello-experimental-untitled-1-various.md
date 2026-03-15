@@ -6,10 +6,11 @@ slug: "nick-santaniello-experimental-untitled-1-various"
 artwork_slug: "v1n4-untitled-1"
 category: "experimental"
 description: ""
-runs_in_browser: 
+runs_in_browser: true
 ---
+
 <script type="text/processing">
-/* 
+/*
 Part of the ReCode Project (http://recodeproject.com)
 Based on "Untitled 1" by Variouis
 Originally published in "Computer Graphics and Art" vol1 no4, 1976
@@ -71,7 +72,7 @@ void draw() {
     }
   }
 
-  //increase the frame count 
+  //increase the frame count
   updateCounter ++;
 
   //every X frames, update the Nubs target offsets.
@@ -100,14 +101,14 @@ class Nub {
   int sizeDifference = 17;
 
   Nub() {
-     
+
     //define a starting offset for the Nub.
     offsetX = random(-7, 7);
-    offsetY  = random(-7, 7); 
+    offsetY  = random(-7, 7);
 };
 
   void run(int r, int c) {
-    
+
     //A very primitive check. If the Nub has not reached its target, move it towards its target by 0.1 pixels per frame.
     if (offsetX != targetX) {
       if (offsetX < targetX) {
@@ -125,7 +126,7 @@ class Nub {
         offsetY = offsetY - 0.1;
       }
     }
-    
+
     //Draw the rectangle and 5 interior rectangles with the appropriate offset.
     rect(c*sqSize, r*sqSize, sqSize, sqSize);
     for (int i=1; i<6; i++) {

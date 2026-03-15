@@ -5,11 +5,12 @@ translator_url: "https://linktr.ee/zeredbox"
 slug: "zeredbox-snekao-direct-untitled-7-reiner-schneeberger"
 artwork_slug: "v3n2-untitled-7-schneeberger"
 category: "direct"
-description: "Based on \"SNEKAO\" by Hans Corneder Originally published in \"Computer Graphics and Art\", 1978 p. 13 and 23/24"
+description: 'Based on "SNEKAO" by Hans Corneder Originally published in "Computer Graphics and Art", 1978 p. 13 and 23/24'
 runs_in_browser: true
 ---
+
 <script type="text/processing">
-/* 
+/*
 Part of the ReCode Project (http://recodeproject.com)
 Based on "Untitled 7" by Reiner Schneeberger
 Originally published in "Computer Graphics and Art" v3n2, 1978
@@ -25,7 +26,7 @@ Based on "SNEKAO" by Hans Corneder
 Originally published in "Computer Graphics and Art", 1978 p. 13 and 23/24
 https://github.s3.amazonaws.com/downloads/matthewepler/ReCode_Project/COMPUTER_GRAPHICS_AND_ART_May1978.pdf
 
-Recode project : http://recodeproject.com/artwork/v3n2untitled-7-schneeberger
+Recode project : http://recodeproject.com/artworks/v3n2untitled-7-schneeberger
 
 January 2023
 zeredbox : https://github.com/zeredbox
@@ -49,7 +50,7 @@ function setup() {
   createCanvas(500, 500);
   // Calculate cells size
   cellSize = width/cellsNb;
-  
+
   strokeCap(SQUARE);
   stroke(50);
   noLoop();
@@ -68,15 +69,15 @@ function drawLines(){
 
   for (let i = 0; i < width / cellSize; i++){
     for (let j = 0; j < height / cellSize; j++){
-     
+
       // Draw horizontal or lines ?
       let rand = floor(random(0, 2));
 
       let x = i * cellSize;
-      let y = j * cellSize;  
+      let y = j * cellSize;
 
     switch (rand) {
-                 
+
       // Draw horizontal lines
       case 0:
         strokeWeight(strokeWHlines);
@@ -84,9 +85,9 @@ function drawLines(){
           line(x, y+i, x+cellSize, y+i);
           }
         break;
-        
+
       // Draw vertical lines
-      case 1: 
+      case 1:
         strokeWeight(strokeWVlines);
         for (let i=0; i<cellSize; i+=vLinesDensity){
           line(x+i, y, x+i, y+cellSize);

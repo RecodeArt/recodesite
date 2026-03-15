@@ -7,6 +7,7 @@ artwork_slug: "v2n2-gaussian-distribution"
 category: "experimental"
 description: "Minimal changes from the direct translation, but there's something wonderful about watching the madness eat at your screen."
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

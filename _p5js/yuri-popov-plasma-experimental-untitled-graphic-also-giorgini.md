@@ -7,6 +7,7 @@ artwork_slug: "v2n2-untitled-graphic-also%20girogini"
 category: "experimental"
 description: ""
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

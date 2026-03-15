@@ -18,6 +18,12 @@ body {
   width: 100%;
 }
 
+#artwork .translations {
+  padding: 10px;
+  background: #f2f2f2;
+  text-align: center;
+}
+
 .wrapper {
   width: 100vw;
   max-width: none;
@@ -67,7 +73,6 @@ body {
     padding-right: 0;
     padding-left: 0;
   }
-
   .row-fluid {
     padding: 0 4% 0 4%;
   }

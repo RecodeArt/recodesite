@@ -7,6 +7,7 @@ artwork_slug: "v2n4-untitled-zajec"
 category: "experimental"
 description: '"Social Circle" represents the evolution of a social circle of shapes, where the influence of the larger group compels a minority to resemble them in order to stay in the circle.'
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

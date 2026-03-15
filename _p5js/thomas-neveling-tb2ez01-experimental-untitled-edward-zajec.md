@@ -7,6 +7,7 @@ artwork_slug: "v2n4-untitled-zajec"
 category: "experimental"
 description: "The changes of this base algorithm from Edward Zajec brings color to the results and looks a little bit human made. Intense changes of the figure-functions, now the objects are placed by random numbers. The alpha value is now changed during painting."
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

@@ -6,7 +6,8 @@ slug: "daniel-howe-rasterwalk-direct-random-walk-through-raster-frieder-nake"
 artwork_slug: "v1n4-random-walk-through-raster"
 category: "direct"
 description: 'Direct translation of Frieder Nake''s 1966 "Random Walk Through Raster" from Computer Graphics and Art, May, 1976, Vol. 1, No. 4, Pg 6-7 Copyright (c) 2012 Daniel C. Howe. To see this sketch run in JavaScript, go to: http://rednoise.org/sketches/RasterWalk/'
-runs_in_browser:
+runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

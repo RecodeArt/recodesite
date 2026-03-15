@@ -7,6 +7,7 @@ artwork_slug: "v1n2-untitled18"
 category: "experimental"
 description: "Après untitled de George nees, le rond est créé par les lignes. Cela me fait penser au concept du Kandinsky, le rond est un carré qui tourne sans fini. Donc j'ai crée plusieurs pentacles qui tournent pour avoir les différents ronds, enfin obtenir un dessin graphique"
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

@@ -7,6 +7,7 @@ artwork_slug: "v2n3-untitled-2"
 category: "direct"
 description: 'Uses the "Munching Square" hack: http://en.wikipedia.org/wiki/Munching_square i.e. a plot of y = x XOR t, for multiple values of t.'
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

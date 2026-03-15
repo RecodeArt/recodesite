@@ -7,6 +7,7 @@ artwork_slug: "v3n2-untitled-veramolnar"
 category: "direct"
 description: "From the Trapezium series.  Refresh the page to redraw."
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

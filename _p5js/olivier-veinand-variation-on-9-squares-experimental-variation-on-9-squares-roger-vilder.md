@@ -7,6 +7,7 @@ artwork_slug: "v1n2-variation-on-9-squares"
 category: "experimental"
 description: 'Based on work from Gerald Kogler I just added randomness in line length You can use key "a" to animate'
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

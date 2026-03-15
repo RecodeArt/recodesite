@@ -7,6 +7,7 @@ artwork_slug: "v1n2-untitled12"
 category: "experimental"
 description: "An interpretation of this by using a recursive algorithm."
 runs_in_browser: false
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

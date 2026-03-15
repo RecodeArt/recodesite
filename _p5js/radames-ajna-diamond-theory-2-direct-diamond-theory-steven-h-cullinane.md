@@ -7,6 +7,7 @@ artwork_slug: "v2n1-diamond-theory"
 category: "direct"
 description: ""
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

@@ -7,6 +7,7 @@ artwork_slug: "v3n2-untitled-6-korneder"
 category: "direct"
 description: "//made during Processing Ghent Recode Workshop //Corneel Cannaerts @introspect0r"
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

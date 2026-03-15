@@ -5,11 +5,12 @@ translator_url: "http://kylemcdonald.net/"
 slug: "kyle-mcdonald-direct-structure-square-series-inwards-roger-coqart"
 artwork_slug: "v1n3-structure-square-series-inwards"
 category: "direct"
-description: "\"Structured Square Series -- Inwards\", drawing 28 x 28 cm. // Other works in the series are \"Horizontal Rows\", \"Outwards\", as well as the \"Permutation\" works."
-runs_in_browser: 
+description: '"Structured Square Series -- Inwards", drawing 28 x 28 cm. // Other works in the series are "Horizontal Rows", "Outwards", as well as the "Permutation" works.'
+runs_in_browser: true
 ---
+
 <script type="text/processing">
-/* 
+/*
 Part of the ReCode Project (http://recodeproject.com)
 Based on "Structured Square Series - Inward" by Roger Coqart
 Originally published in "Computer Graphics and Art" vol1 no3, 1976

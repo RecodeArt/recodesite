@@ -7,6 +7,7 @@ artwork_slug: "v1n4-untitled-4"
 category: "experimental"
 description: "RGB Remix"
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

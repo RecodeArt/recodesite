@@ -7,6 +7,7 @@ artwork_slug: "v3n1-wernher-von-braun"
 category: "direct"
 description: "Image is a cropped version of full output."
 runs_in_browser: false
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

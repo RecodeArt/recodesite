@@ -7,6 +7,7 @@ artwork_slug: "v1n2-the-cube-theme-and-variation"
 category: "direct"
 description: "Made by Jesse Scott as part of Processing Vancouver"
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

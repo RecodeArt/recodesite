@@ -7,6 +7,7 @@ artwork_slug: "v1n2-variation-on-9-squares"
 category: "direct"
 description: "From the SDL Collection."
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

@@ -7,6 +7,7 @@ artwork_slug: "v2n2-helikos"
 category: "experimental"
 description: "more translations of James Ver Hague: https://www.notion.so/Project-1-2858ef9356d448dd8454347d50afde31"
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

@@ -7,6 +7,7 @@ artwork_slug: "v1n2-kubus-serie"
 category: "direct"
 description: ", but appears slightly different than it does when run in the Processing IDE."
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

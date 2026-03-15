@@ -8,8 +8,9 @@ category: "experimental"
 description: ""
 runs_in_browser: false
 ---
+
 <script type="text/processing">
-/* 
+/*
 Part of the ReCode Project (http://recodeproject.com)
 Based on "Digital Computer Based Sculpture Composed of Coloured Elements" by Larence J Mazlack
 Originally published in "Computer Graphics and Art" v1n2, 1976
@@ -23,8 +24,8 @@ Copyright (c) 2021 Luke Labenski - OSI/MIT license (http://recodeproject/license
  Larence J Mazlack
  1976
  Computer Graphics
- http://recodeproject.com/artwork/v1n2digital-computer-based-sculpture-composed-of-coloured-elements
- 
+ http://recodeproject.com/artworks/v1n2digital-computer-based-sculpture-composed-of-coloured-elements
+
  Re-Coded by Luke Labenski
  */
 
@@ -46,7 +47,7 @@ int yMax4 = 6;
 //square size
 float spacing = 45;
 
-//requires JMHTypewriter Think from 
+//requires JMHTypewriter Think from
 //https://www.dafont.com/jmh-typewriter.font
 //font for text
 PFont font;
@@ -57,7 +58,7 @@ int saveF = 0;
 
 //typical setup
 void setup() {
-  size(500, 500);  
+  size(500, 500);
   font = createFont("Typewriter.ttf", 24);
 }
 
@@ -105,7 +106,7 @@ void draw() {
     x=x+spacing;
     count++;
   }
-  line(0, height-250, x-spacing, height-250);  
+  line(0, height-250, x-spacing, height-250);
   count=0;
   y=height-1;
   while (count<yMax2) {
@@ -138,7 +139,7 @@ void draw() {
     x=x-spacing;
     count++;
   }
-  line(x, height, x, height-250); 
+  line(x, height, x, height-250);
   y = height-1;
   count=0;
   while (count<yMax4) {
@@ -167,7 +168,7 @@ void draw() {
   rect(width-108, 76, 43, 52);
   //top left center right box
   rect(158, 131, 40, 48);
-  //top right center bottom 
+  //top right center bottom
   rect(width-62, 131, 40, 48);
   //top left bottom left
   rect(21, 185, 42, 48);
@@ -284,7 +285,7 @@ void draw() {
   circle(299, 471, 5);
   //filter to push scanned effect
   //filter(BLUR, 1);
-  
+
   if(saveF == 0){
     saveFrame("SaveFrame.png");
     saveF++;

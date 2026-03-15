@@ -7,6 +7,7 @@ artwork_slug: "v1n2-the-cube-theme-and-variation"
 category: "experimental"
 description: "Work made in the Generative Art course from the Master's degree in Design and Multimedia of the University of Coimbra, Portugal. Sketch made according top the rules in: https://digitalartmuseum.org/zajec/zajec70-73_002.html and to create digital artworks similar to: https://digitalartmuseum.org/zajec/1970-73-tvc.html"
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

@@ -6,7 +6,8 @@ slug: "chris-allick-direct-untitled-georg-nees"
 artwork_slug: "v1n2-untitled18"
 category: "direct"
 description: "None"
-runs_in_browser:
+runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

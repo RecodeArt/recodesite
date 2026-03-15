@@ -6,7 +6,8 @@ slug: "nick-santaniello-direct-untitled-1-various"
 artwork_slug: "v1n4-untitled-1"
 category: "direct"
 description: "See also Vol. 2 No. 3 (image 10, pages 14-15) for more, including code. Input to computer on punch cards"
-runs_in_browser:
+runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

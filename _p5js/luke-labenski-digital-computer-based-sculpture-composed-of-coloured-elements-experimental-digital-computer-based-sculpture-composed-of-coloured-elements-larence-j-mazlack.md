@@ -7,6 +7,7 @@ artwork_slug: "v1n2-digital-computer-based-sculpture-composed-of-coloured-elemen
 category: "experimental"
 description: ""
 runs_in_browser: false
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">
@@ -22,7 +23,7 @@ Copyright (c) 2021 Luke Labenski - OSI/MIT license (http://recodeproject/license
  Larence J Mazlack
  1976
  Computer Graphics
- http://recodeproject.com/artwork/v1n2digital-computer-based-sculpture-composed-of-coloured-elements
+ http://recodeproject.com/artworks/v1n2digital-computer-based-sculpture-composed-of-coloured-elements
 
  Re-Coded by Luke Labenski
  */

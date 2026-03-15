@@ -6,7 +6,8 @@ slug: "chris-allick-experimental-untitled-1-various"
 artwork_slug: "v1n4-untitled-1"
 category: "experimental"
 description: "None"
-runs_in_browser:
+runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">

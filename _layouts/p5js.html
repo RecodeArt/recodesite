@@ -3,5 +3,27 @@ layout: base
 body_id: translation
 ---
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.10/p5.min.js" integrity="sha512-7DACDM+XO+/7cocfzNIXh/3rSXc7MzTtr2elSVJLYcXXHPL1/lAyFSKU1F1JBPPCvBGOLNYJCqLlzFeJzc6dLg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-{{ content }}
+{%- include translator.html -%}
+
+<div id="sketch" class="row-fluid offset1">
+  <div class="span12">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/{{ page.p5_version | default: '1.6.0'}}/p5.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    {{ content }}
+    <div id="sketch-container"></div>
+  </div>
+</div>
+
+<div id="jscode" class="row-fluid offset1">
+  <div class="span12">
+    <textarea id="code" style="width: 90%; height: 400px; font-family: monospace; font-size: 14px" readonly>
+      {{ page.script }}
+    </textarea>
+  </div>
+</div>
+
+<script>
+  window.addEventListener("load", function () {
+    let cnv = document.getElementById("defaultCanvas0")
+    document.getElementById("sketch-container").appendChild(cnv)
+  })
+</script>

@@ -7,6 +7,7 @@ artwork_slug: "v3n2-untitled-7-schneeberger"
 category: "direct"
 description: 'Based on "SNEKAO" by Hans Corneder Originally published in "Computer Graphics and Art", 1978 p. 13 and 23/24'
 runs_in_browser: true
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">
@@ -24,7 +25,7 @@ Based on "SNEKAO" by Hans Corneder
 Originally published in "Computer Graphics and Art", 1978 p. 13 and 23/24
 https://github.s3.amazonaws.com/downloads/matthewepler/ReCode_Project/COMPUTER_GRAPHICS_AND_ART_May1978.pdf
 
-Recode project : http://recodeproject.com/artwork/v3n2untitled-7-schneeberger
+Recode project : http://recodeproject.com/artworks/v3n2untitled-7-schneeberger
 
 January 2023
 zeredbox : https://github.com/zeredbox

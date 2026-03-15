@@ -7,6 +7,7 @@ artwork_slug: "v1n2-universal-declaration-of-human-rights"
 category: "direct"
 description: "Folder containing data files necessary for running this code can be found here: https://github.com/matthewepler/ReCode_Project/tree/master/quin_kennedy/recode_v1n2_universal_declaration_of_human_rights."
 runs_in_browser: false
+p5_version: 1.11.10
 ---
 
 <script type="text/javascript">
