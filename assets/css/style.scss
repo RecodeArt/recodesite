@@ -7,6 +7,12 @@
 body {
   overflow-x: hidden;
 }
+
+hr 
+{
+  margin : 20px 8% 0 8%;
+}
+
 .page-content {
   padding-top: 45px;
 }
@@ -25,8 +31,9 @@ body {
 }
 
 .wrapper {
-  width: 100vw;
+  width:  100vw;
   max-width: none;
+  box-sizing: border-box;
 }
 
 #home .page-content .wrapper,
@@ -37,7 +44,7 @@ body {
 
 .row-fluid {
   display: flex;
-  padding: 0 8% 0 8%;
+  padding: 20px 8% 20px 8%;
   box-sizing: border-box;
 }
 
@@ -65,8 +72,76 @@ body {
 
 #list-magazines {
   box-sizing: border-box;
-  padding: 30px 0 30px 0;
+  padding: 30px 0 0 0;
 }
+
+/*
+————————— artwork.html
+*/
+
+.row-fluid.container-translations
+{
+  gap: 30px;
+  justify-content: center;
+}
+
+
+.translations
+{
+  width: 20%;
+  min-width:150px;
+}
+
+/*
+————————— p5js.html
+*/
+#sketch-iframe
+{
+  border:0;
+  width:100%;
+}
+
+.sketch-wrapper
+{
+  gap: 30px;
+}
+
+.sketch-wrapper #sketch
+{
+  flex: 1;
+  min-width:400px;
+  max-width:600px;
+}
+
+.sketch-wrapper #jscode
+{
+  flex: 1;
+}
+
+.sketch-wrapper #jscode .buttons
+{
+  margin-bottom: 10px;
+}
+
+.cm-editor {
+  flex: 1;
+  height:800px;
+}
+
+.cm-scroller {
+  overflow: auto;
+}
+
+
+
+@media (max-width: 1100px) 
+{
+  .sketch-wrapper
+  {
+    flex-direction: column;
+  }
+}
+
 
 @media (max-width: 767px) {
   body {
@@ -93,3 +168,4 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+

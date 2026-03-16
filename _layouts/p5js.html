@@ -5,25 +5,127 @@ body_id: translation
 
 {%- include translator.html -%}
 
-<div id="sketch" class="row-fluid offset1">
-  <div class="span12">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/{{ page.p5_version | default: '1.6.0'}}/p5.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    {{ content }}
-    <div id="sketch-container"></div>
+<div class="sketch-wrapper row-fluid">
+  <div id="sketch">
+  </div>
+
+  <div id="jscode">
+      <div class="buttons">
+        <button id="play">Play</button>
+        <button id="stop">Stop</button>
+      </div>
+      <textarea id="code" style="display:none;width: 90%; height: 400px; font-family: monospace; font-size: 14px" readonly>
+        {{ page.script }}
+      </textarea>
   </div>
 </div>
 
-<div id="jscode" class="row-fluid offset1">
-  <div class="span12">
-    <textarea id="code" style="width: 90%; height: 400px; font-family: monospace; font-size: 14px" readonly>
-      {{ page.script }}
-    </textarea>
-  </div>
-</div>
+<script type="module">
 
-<script>
-  window.addEventListener("load", function () {
-    let cnv = document.getElementById("defaultCanvas0")
-    document.getElementById("sketch-container").appendChild(cnv)
-  })
+    import { EditorView, basicSetup } from "https://esm.sh/codemirror@6.0.1";
+    import { javascript } from "https://esm.sh/@codemirror/lang-javascript@6.1.7";
+
+    window.addEventListener('load', () => 
+    {
+      // Get code
+      let codeRaw = document.getElementById("code").value;
+
+      // Remove <textarea>
+      document.getElementById("code").remove();
+
+      // Create editor
+      const editor = new EditorView({
+          doc: codeRaw,
+          extensions: [basicSetup, javascript()],
+          parent: document.getElementById("jscode")
+      });
+
+      // Install UI
+      const btnPlay = document.getElementById("play");
+      const btnStop = document.getElementById("stop");
+
+      btnPlay.addEventListener("click", _=>{ playSketch(editor.state.doc.toString()) });
+      btnStop.addEventListener("click", _=>{ removeSketch() });
+
+      // Play sketch
+      playSketch(codeRaw);
+    })
+
+    function playSketch(code)
+    {
+      // Remove iframe ( = clean container)
+      let container = document.getElementById('sketch');
+      container.innerHTML='';
+
+      // Create iframe
+      const iframe = document.createElement("iframe");
+      container.appendChild(iframe);
+      iframe.setAttribute('id', 'sketch-iframe');
+
+      // Iframe onload => resize canvas
+      iframe.addEventListener("load", () => 
+      {
+
+        const observer = new MutationObserver(() => {
+            const canvas = doc.querySelector("canvas");
+            if (canvas) 
+            {
+              observer.disconnect();
+              resizeSketch(iframe,canvas);
+            }
+          });
+
+        const doc = iframe.contentDocument;          
+        observer.observe(doc.body, { childList: true, subtree: true });          
+        
+        //const canvas = iframe.contentDocument.getElementById("defaultCanvas0");
+
+        //console.log(canvas)
+        //canvas.style.width = "100%";
+        //canvas.style.height = "auto";
+      });
+
+      const doc = iframe.contentDocument || iframe.contentWindow.document;
+
+      doc.open();
+      doc.write(code ? `
+      <html>
+      <head>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.10/p5.min.js"><\/script>
+      </head>
+      <body>
+          <script>${code}<\/script>
+      </body>
+      </html>
+      ` : ``);
+      doc.close();
+    }
+
+    function removeSketch()
+    {
+      let container = document.getElementById('sketch');
+      container.innerHTML='';
+    }
+
+    function resizeSketch(iframe,canvas) 
+    {
+      const ratio = canvas.height / canvas.width;
+
+      function resize() 
+      {
+        const width = canvas.parentElement.clientWidth;
+        canvas.style.width = "100%";
+        canvas.style.height = width * ratio + "px";
+
+        iframe.height = canvas.style.height + "px";
+      }
+
+      resize();
+      window.addEventListener("resize", resize);
+    
+      return canvas.style.height;
+    }    
+
+
+
 </script>
