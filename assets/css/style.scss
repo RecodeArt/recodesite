@@ -84,6 +84,11 @@ hr
   box-sizing: border-box;
 }
 
+.nav-margin
+{
+  margin-top: 40px;
+}
+
 #home .page-content .wrapper,
 #artwork .page-content .wrapper {
   padding: 0;
@@ -197,6 +202,9 @@ hr
     padding-right: 0;
     padding-left: 0;
   }
+
+
+  .navbar,
   .row-fluid {
     padding: 0 4% 0 4%;
   }
