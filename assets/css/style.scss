@@ -13,6 +13,54 @@ hr
   margin : 20px 8% 0 8%;
 }
 
+.navbar
+{
+    display:flex;
+    width: 100%;
+    padding: 0 8% 0 8%;
+    background-color: #1b1b1b;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.navbar .nav
+{
+  margin : 0;
+}
+
+.navbar .brand
+{
+  box-sizing: border-box;
+  padding:  10px 0 0 0;
+  margin:0;
+}
+
+.navbar-fixed-top
+{
+  margin:0;
+}
+
+.navbar-search 
+{
+  margin-top:7px;
+}
+
+
+.navbar .form-inline .input-append
+{
+  display: none;
+}
+
+.navbar-fixed-top .container
+{
+  width: unset;
+}
+
+.navbar-fixed-top .navbar-inner
+{
+  padding: 0;
+}
+
 .page-content {
   padding-top: 45px;
 }
