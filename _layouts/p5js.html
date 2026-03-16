@@ -64,10 +64,16 @@ body_id: translation
       container.appendChild(iframe);
       iframe.setAttribute('id', 'sketch-iframe');
 
+      const doc = iframe.contentDocument || iframe.contentWindow.document;
+
       // Iframe onload => resize canvas
       iframe.addEventListener("load", () => 
       {
+        // No margin / padding on iframe document
+        doc.body.style.margin = "0";
+        doc.body.style.padding = "0";
 
+        // Check when canvas is here
         const observer = new MutationObserver(() => 
         {
             const canvas = doc.querySelector("canvas");
@@ -84,10 +90,10 @@ body_id: translation
             }
           });
 
-        observer.observe(doc.body, { childList: true, subtree: true });          
+        observer.observe(doc.body, { childList: true, subtree: true }); 
+         
       });
 
-      const doc = iframe.contentDocument || iframe.contentWindow.document;
 
       doc.open();
       doc.write(code ? `
@@ -101,8 +107,6 @@ body_id: translation
       </html>
       ` : ``);
       doc.close();
-      doc.body.style.margin = "0";
-      doc.body.style.padding = "0";
     }
 
     function removeSketch()
