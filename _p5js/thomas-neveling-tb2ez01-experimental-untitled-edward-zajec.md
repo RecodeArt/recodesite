@@ -20,7 +20,7 @@ Copyright (c) 2013 thomas neveling - OSI/MIT license (http://recodeproject/licen
 
 let w = 1000;
 let h = 1000;
-let maxf = Math.floor(random(1, 7));
+let maxf;
 let maxW = w / 2;
 let minW = maxW / 3;
 let c = 0;
@@ -32,6 +32,7 @@ function setup() {
   background(random(100), random(100), random(100));
   ellipseMode(CENTER);
   rectMode(CENTER);
+  maqf  = Math.floor(random(1, 7));
 }
 
 /*

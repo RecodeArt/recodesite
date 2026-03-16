@@ -23,13 +23,14 @@ const idealCanvasSize = 600;
 const numCellsWide = 8;
 const boxSize = 300 / (numCellsWide + 2) / 2 * 2; // we want it to be even
 const gutterRatio = 1;
-const cellWidth = floor(idealCanvasSize / (numCellsWide + gutterRatio * 2)) / 2 * 2; // we want an even number
-const gutterWidth = floor(cellWidth * gutterRatio);
+const cellWidth = Math.floor(idealCanvasSize / (numCellsWide + gutterRatio * 2)) / 2 * 2; // we want an even number
+const gutterWidth = Math.floor(cellWidth * gutterRatio);
 const actualCanvasSize = cellWidth * numCellsWide + gutterWidth * 2;
 const gutterBleed = .5;
 
 function setup() {
   createCanvas(actualCanvasSize, actualCanvasSize, WEBGL);
+  pixelDensity(4);
   noLoop();
 }
 
@@ -119,7 +120,7 @@ function drawBox(g, rotX, rotY, rotZ, weight, backgroundColor) {
 
 function drawGrid(bHorizontal) {
   let currOffset = gutterWidth + cellWidth / 2;
-  let visualGutter = gutterWidth - (floor(gutterWidth * gutterBleed));
+  let visualGutter = gutterWidth - (Math.floor(gutterWidth * gutterBleed));
   for (let i = 0; i < numCellsWide; i++, currOffset += cellWidth) {
     if (bHorizontal) {
       line(visualGutter, currOffset, -boxSize * 3, width - visualGutter, currOffset, -boxSize * 3);

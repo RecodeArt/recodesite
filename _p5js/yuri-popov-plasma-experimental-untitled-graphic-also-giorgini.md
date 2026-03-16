@@ -24,7 +24,7 @@ let cls;
 
 function setup() {
   createCanvas(800, 400);
-
+  pixelDensity(1)
   let s1, s2;
   let shift = 254;
 

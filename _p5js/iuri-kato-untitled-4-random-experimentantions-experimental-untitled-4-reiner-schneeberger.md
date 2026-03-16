@@ -11,6 +11,7 @@ p5_version: 1.11.10
 ---
 
 <script type="text/javascript">
+
 /*
 Part of the ReCode Project (http://recodeproject.com)
 Based on "Untitled 4" by Reiner Schneeberger
@@ -36,14 +37,16 @@ Copyright (c) 2012 Jon Bobrow - OSI/MIT license (http://recodeproject/license).
 // note: .f enforces float division, dividing by an int would automatically round down
 // i.e. 1/2 = 0 , 1/2.f = .5
 
-let gridSize = random(30);
-let density = random(7);
+var gridSize, density
 
-// interesting density for grid 20: 2.5; 3.5; 5.3; 6.02;
 
 function setup(){
   createCanvas(400, 400);
   background(255);
+
+  // interesting density for grid 20: 2.5; 3.5; 5.3; 6.02;
+  gridSize = random(30);
+  density = random(7);
 
   stroke(0);
   strokeWeight(1);
@@ -72,4 +75,6 @@ function setup(){
     }
   }
 }
+
+
 </script>

@@ -12,12 +12,12 @@ p5_version: 1.11.10
 
 <script type="text/javascript">
 
-/_
+/*
 Part of the ReCode Project (http://recodeproject.com)
 Based on "Universal Declaration of Human Rights" by Kenneth Knowlton
 Originally published in "Computer Graphics and Art" vol1 no2, 1976
 Copyright (c) 2012 Quin Kennedy - OSI/MIT license (http://recodeproject/license).
-_/
+*/
 //image from: http://www.metro.co.uk/news/841183-photos-around-the-world-in-80-days-competition-winners
 
 let f;

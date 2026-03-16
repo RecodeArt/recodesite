@@ -25,7 +25,7 @@ The alpha value is now changed during painting.
 
 let w = 1000;
 let h = 1000;
-let maxf = Math.floor(random(1, 30));
+let maxf ;
 let minW = 100;
 let maxW = w;
 let c = 0;
@@ -37,6 +37,7 @@ function setup() {
   background(0);
   ellipseMode(CENTER);
   rectMode(CENTER);
+  maxf = Math.floor(random(1, 30));
 }
 
 /*
