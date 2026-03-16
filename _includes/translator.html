@@ -1,5 +1,5 @@
 {% assign artwork = site.artworks | find: "slug", page.artwork_slug %} {% assign artist = site.artists | find: "name", artwork.artist %} {% assign artist_url = "/artists/" | append: artist.slug | relative_url %} {% assign artwork_url = "/artworks/" | append: artwork.slug | relative_url %}
-<div class="row-fluid offset1">
+<div class="row-fluid">
   <div class="span12" style="margin-top: 50px">
     <div id="basic-info">
       <h2>{{page.title}}</h2>

@@ -77,12 +77,6 @@ body_id: translation
 
         const doc = iframe.contentDocument;          
         observer.observe(doc.body, { childList: true, subtree: true });          
-        
-        //const canvas = iframe.contentDocument.getElementById("defaultCanvas0");
-
-        //console.log(canvas)
-        //canvas.style.width = "100%";
-        //canvas.style.height = "auto";
       });
 
       const doc = iframe.contentDocument || iframe.contentWindow.document;
@@ -118,6 +112,12 @@ body_id: translation
         canvas.style.height = width * ratio + "px";
 
         iframe.height = canvas.style.height + "px";
+        
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        if (doc) {
+          doc.body.style.margin = "0";
+          doc.body.style.padding = "0";
+        }
       }
 
       resize();

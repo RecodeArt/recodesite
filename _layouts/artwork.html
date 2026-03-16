@@ -6,7 +6,7 @@ body_id: artwork
 {% assign document = site.data.volumes | find: "id", page.source_id  %}
 {% assign translations = site.p5js | where: "artwork_slug", page.slug %}
 
-<div class="row-fluid offset1">
+<div class="row-fluid">
   <div class="span12" name="display" style="margin-top: 50px;">
 		<div class="span5" name="image">
 			<img src="{{ '/assets/img/' | append: page.photo_link | relative_url }}" width="400" height="400">
@@ -37,15 +37,13 @@ body_id: artwork
 	</div>
 </div>
 
-</br>
 <hr>
 
-<div class = "row-fluid offset1">
+<div class = "row-fluid">
 		<h3>Translations</h3>
 </div>
-<div class = "row-fluid offset1">
-		<div class="span3"></div>
-		<div class="span3 translations">
+<div class = "row-fluid container-translations">
+		<div class="translations">
 			<h5>Direct Translation</h5>
 			{% for t in translations %}
 			{% if t.category == "direct" %}
@@ -54,7 +52,7 @@ body_id: artwork
 			{% endif %}
 			{% endfor %}
 		</div>
-		<div class="span3 translations">
+		<div class="translations">
 			<h5>Experimental</h5>
 			{% for t in translations %}
 			{% if t.category == 'experimental' %}
