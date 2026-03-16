@@ -9,7 +9,7 @@ description: ""
 runs_in_browser: false
 ---
 <script type="text/processing">
-/* 
+/*
 Part of the ReCode Project (http://recodeproject.com)
 Based on "P210" by Manfred Mohr
 Originally published in "Computer Graphics and Art" vol3 no1, 1978
@@ -128,8 +128,7 @@ void draw() {
     popMatrix();
   }
   popMatrix();
-  
-  hint(DISABLE_DEPTH_TEST);
+
   noStroke();
   fill(255);
   for (int i = 0; i < 4; i++) {

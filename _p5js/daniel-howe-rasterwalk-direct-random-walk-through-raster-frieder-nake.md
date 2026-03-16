@@ -44,105 +44,111 @@ p5_version: 1.11.10
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-let x = 50, y = 50, cellSz, grid = [];
-let DOWN = 1, RIGHT = 2, px = 0, py = 0, sw = 2;
+let x = 50,
+  y = 50,
+  cellSz,
+  grid = [];
+let DOWN = 1,
+  RIGHT = 2,
+  px = 0,
+  py = 0,
+  sw = 2;
 
 function setup() {
+  createCanvas(400, 400);
 
-    createCanvas(400, 400);
+  background(255);
+  noFill();
+  strokeWeight(sw);
+  strokeCap(PROJECT);
 
-    background(255);
-    noFill();
-    strokeWeight(sw);
-    strokeCap(PROJECT);
+  makeGrid();
+  foreach(drawCell);
 
-    makeGrid();
-    foreach(drawCell);
-
-    step();
+  doStep();
 }
 
-
 function drawCell(j, i) {
-
-    // skip one row/col around edge
-    if (i > 0 && j < y - 1 && i < y - 1 && i < x - 1 && j < x - 1) {
-
-        let off = 0;
-        stroke(0);
-        if (!exists(j, i, DOWN)) {
-            stroke(255); // erase
-            if (j > 1) off = sw;
-        }
-
-        if (j > 0) {
-            line(j * cellSz + off, cellSz + i * cellSz, // horiz
-                    (j + 1) * cellSz - 1, cellSz + (i * cellSz));
-        }
-
-        off = 0;
-        stroke(0);
-        if (!exists(j, i, RIGHT)) {
-            stroke(255); // erase
-            if (i > 1) off = sw;
-        }
-
-        line((cellSz + j * cellSz), i * cellSz + off, // vert
-                (cellSz + j * cellSz), (i + 1) * cellSz - 1);
+  // skip one row/col around edge
+  if (i > 0 && j < y - 1 && i < y - 1 && i < x - 1 && j < x - 1) {
+    let off = 0;
+    stroke(0);
+    if (!exists(j, i, DOWN)) {
+      stroke(255); // erase
+      if (j > 1) off = sw;
     }
+
+    if (j > 0) {
+      line(
+        j * cellSz + off,
+        cellSz + i * cellSz, // horiz
+        (j + 1) * cellSz - 1,
+        cellSz + i * cellSz
+      );
+    }
+
+    off = 0;
+    stroke(0);
+    if (!exists(j, i, RIGHT)) {
+      stroke(255); // erase
+      if (i > 1) off = sw;
+    }
+
+    line(
+      cellSz + j * cellSz,
+      i * cellSz + off, // vert
+      cellSz + j * cellSz,
+      (i + 1) * cellSz - 1
+    );
+  }
 }
 
 function makeGrid() {
+  let d = dist(0, 0, 1, 1);
+  cellSz = min(width, height) / x;
 
-    cellSz = min(width, height) / x;
-
-    for (let j = 0; j < x + 1; j++) {
-
-        grid[j] = []; // initialize to 0
-        for (let i = 0; i < y + 1; i++)
-            grid[j][i] = 0;
-    }
+  for (let j = 0; j < x + 1; j++) {
+    grid[j] = []; // initialize to 0
+    for (let i = 0; i < y + 1; i++) grid[j][i] = 0;
+  }
 }
 
-function step() {
+function doStep() {
+  let dirs = Math.random() < 0.9 ? [DOWN] : [RIGHT, DOWN];
+  let idx = floor(random(dirs.length));
+  let dir = dirs[idx];
+  removeSpot(px, py, dir);
 
-    let dirs = (Math.random() < 0.9) ? [DOWN] : [RIGHT, DOWN];
-    let idx = floor(random(dirs.length))
-    let dir = dirs[idx];
-    remove(px, py, dir);
+  // but weight verticals and the diagonal
+  let d = dist(px, 0, py, 0) / x;
+  if (Math.random() < d) removeSpot(px, py, RIGHT);
 
-    // but weight verticals and the diagonal
-    let d = dist(px, 0, py, 0) / x;
-    if (Math.random() < d)
-        remove(px, py, RIGHT);
+  drawCell(px, py);
 
-    drawCell(px, py);
+  if (++px % x == 0) {
+    px = 0;
+    ++py;
+  }
 
-    if (++px % x == 0) { px = 0; ++py; }
-
-    if (py < y - 1 || px < x - 1)
-        setTimeout(step, 0);
+  if (py < y - 1 || px < x - 1) setTimeout(doStep, 0);
 }
 
 function foreach(fun) {
-
-    for (let i = 0; i < y; i++) {
-        for (let j = 0; j < x; j++)
-            fun.apply(this, [j, i]);
-    }
+  for (let i = 0; i < y; i++) {
+    for (let j = 0; j < x; j++) fun.apply(this, [j, i]);
+  }
 }
 
 function exists(j, i, side) {
-
-    switch(side) {
-        case RIGHT: return (grid[j][i] < 2);
-        case DOWN:  return (grid[j][i] % 2 == 0);
-    }
+  switch (side) {
+    case RIGHT:
+      return grid[j][i] < 2;
+    case DOWN:
+      return grid[j][i] % 2 == 0;
+  }
 }
 
-function remove(j, i, side) {
-
-    if (exists(j, i, side))
-        grid[j][i] += side;
+function removeSpot(j, i, side) {
+  if (exists(j, i, side)) grid[j][i] += side;
 }
 </script>

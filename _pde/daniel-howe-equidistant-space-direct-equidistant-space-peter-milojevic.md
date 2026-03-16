@@ -9,8 +9,6 @@ description: ""
 runs_in_browser: false
 ---
 <script type="text/processing">
-*/
-
 // ///////////////////////////////////////////////////
 // For the ReCode Project - http://recodeproject.com
 // ///////////////////////////////////////////////////
@@ -28,28 +26,28 @@ void setup() {
 
   frameRate(10);
   size(580, 580);
-  dt = new Delaunay(45);  
+  dt = new Delaunay(45);
 }
 
 void draw() {
 
   if (keyPressed && key==' ') return;
-  
+
   update();
 
   background(255);
   strokeWeight(2);
   rect(0,0,width-1,height-1);
-  
+
   float tcx, tcy;
   for (int i = 0; i < edges.size(); i++) {
-    
+
     Edge e = (Edge) edges.get(i), ee = e.invE;
     if (ee == null || ee.inT == null) {
-      
+
       tcx = e.inT.c_cx - e.p2.y + e.p1.y;
       tcy = e.inT.c_cy - e.p1.x + e.p2.x;
-    } 
+    }
     else {
       tcx = ee.inT.c_cx;
       tcy = ee.inT.c_cy;
@@ -107,7 +105,7 @@ void update() {
     tmpNodes.add(node);
   }
 
-  for (int i = 0;  i < 4; i++) 
+  for (int i = 0;  i < 4; i++)
       tmpNodes.remove((int) random(tmpNodes.size()));
 
   dt.clear();
@@ -122,8 +120,8 @@ void update() {
 void clip(Node p) {
   float d = dist(p.x,p.y,width/2,height/2);
   if (d > width/2) {
-    p.x += (p.x < width/2) ? 1 : -1; 
-    p.y += (p.y < height/2) ? 1 : -1; 
+    p.x += (p.x < width/2) ? 1 : -1;
+    p.y += (p.y < height/2) ? 1 : -1;
   }
 }
 
@@ -132,12 +130,12 @@ Node nodeAt(int i) {
 }
 
 /*
- * A port to Processing of 
+ * A port to Processing of
  * <a href=http://www.geo.tu-freiberg.de/~apelm/>Marcus Appel</a>'s
  * 'Delaunay Triangulation' routines
  */
 class Delaunay {
-  
+
     Delaunay(int num) {
       tris = new ArrayList();
       nodes = new ArrayList();
@@ -199,7 +197,7 @@ class Delaunay {
     }
 
     void delete(int px, int py) {
-      
+
       if (nodes.size() <= 3) return; // not for single tri
 
       Node nd = nearest(px, py);
@@ -253,10 +251,10 @@ class Delaunay {
           swapTest(e1,e2);
         } else
           index[cur_n++] = index[cur_i++];
-          
+
         if (cur_i == last_n)
           index[cur_n++] = index[cur_i++];
-          
+
         if (cur_i == last_n + 1) {
           if (last_n == cur_n - 1)
             break;
@@ -281,7 +279,7 @@ class Delaunay {
       Node p1 = e1.p1, p2 = e2.p1, p3 = e3.p1;
 
       if (type == 2) {// nd is inside of the triangle
-      
+
         Edge e10 = new Edge(p1, nd), e20 = new Edge(p2, nd), e30 = new Edge(p3, nd);
         e.inT.removeEdges(edges);
         tris.remove(e.inT); // remove old triangle
@@ -289,9 +287,9 @@ class Delaunay {
         tris.add(new Triangle(edges, e2, e30, e20.makeSymm()));
         tris.add(new Triangle(edges, e3, e10, e30.makeSymm()));
         swapTest(e1, e2, e3); // swap test for the three new triangles
-      } 
+      }
       else {// nd is on the edge e
-      
+
         Edge e4 = e1.invE;
         if (e4 == null || e4.inT == null) // one triangle involved
         {
@@ -302,7 +300,7 @@ class Delaunay {
           e10.setNextH(e02);
           e02.setNextH(e1.nextH);
           hullStart = e02;
-          tris.remove(e1.inT); // remove oldtriangle 
+          tris.remove(e1.inT); // remove oldtriangle
           edges.remove(e1);
           edges.add(e10);// add two new triangles
           edges.add(e02);
@@ -315,7 +313,7 @@ class Delaunay {
         {
           Edge e5 = e4.nextE, e6 = e5.nextE;
           Node p4 = e6.p1;
-          Edge e10 = new Edge(p1, nd), e20 = new Edge(p2, nd), 
+          Edge e10 = new Edge(p1, nd), e20 = new Edge(p2, nd),
             e30 = new Edge(p3, nd), e40 = new Edge(p4, nd);
           tris.remove(e.inT); // remove oldtriangle
           e.inT.removeEdges(edges);
@@ -442,23 +440,23 @@ class Delaunay {
       return nd;
     }
   }
-  
+
   class Node {
     int x, y;
     Edge anEdge; // an edge which start from this node
-  
+
     Node(int x, int y) {
       this.x = x;
       this.y = y;
     }
-    
+
     float distance(float px, float py) {
       return dist(x, y, px, py);
     }
   }
 
 class Edge {
-  
+
   Node p1, p2; // start and end point of the edge
   Triangle inT; // triangle containing this edge
   float a, b, c; // line equation parameters: aX+bY+c=0
@@ -539,7 +537,7 @@ class Edge {
 }
 
 class Triangle {
-  
+
   Edge anEdge; // edge of this triangle
   float c_cx, c_cy, c_r;
 

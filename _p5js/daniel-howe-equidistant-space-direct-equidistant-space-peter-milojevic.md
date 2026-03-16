@@ -11,7 +11,6 @@ p5_version: 1.11.10
 ---
 
 <script type="text/javascript">
-*/
 
 // ///////////////////////////////////////////////////
 // For the ReCode Project - http://recodeproject.com
@@ -79,8 +78,8 @@ function update() {
   let D = Math.trunc(Math.sqrt(nodes.length));
   for (let i = 0; i < edges.length; i++) {
     let edge = edges[i];
-    clip(edge.p1);
-    clip(edge.p2);
+    clipEdge(edge.p1);
+    clipEdge(edge.p2);
     let x = edge.p2.x - edge.p1.x;
     let y = edge.p2.y - edge.p1.y;
     let rr = x * x + y * y;
@@ -121,7 +120,7 @@ function update() {
   }
 }
 
-function clip(p) {
+function clipEdge(p) {
   let d = dist(p.x, p.y, width/2, height/2);
   if (d > width/2) {
     p.x += (p.x < width/2) ? 1 : -1;
