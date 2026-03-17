@@ -85,8 +85,8 @@ body_id: translation
                 bFirstLoad = false;
                 setTimeout( _=>{ resizeSketch(iframe,canvas) }, 150 ); 
               }
-              else*/
-                resizeSketch(iframe,canvas);
+              else */
+              resizeSketch(iframe,canvas);
             }
           });
 
@@ -121,17 +121,20 @@ body_id: translation
 
       function resize() 
       {
+        // Get height of the p5 created canvas
         const width = canvas.parentElement.clientWidth;
-        canvas.style.width = "100%";
-        canvas.style.height = width * ratio + "px";
 
-        iframe.height = canvas.style.height + "px";
+        // Set the iframe height
+        iframe.height = width * ratio + "px";
+
+        // Adjust canvas display
+        canvas.style.width = "100%";
+        canvas.style.height = iframe.height;
       }
 
+      // Resize
       resize();
       window.addEventListener("resize", resize);
-    
-      return canvas.style.height;
     }    
 
 

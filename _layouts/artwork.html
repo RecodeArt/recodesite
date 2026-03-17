@@ -7,11 +7,13 @@ body_id: artwork
 {% assign translations = site.p5js | where: "artwork_slug", page.slug %}
 
 <div class="row-fluid">
-  <div class="span12" name="display" style="margin-top: 50px;">
-		<div class="span5" name="image">
-			<img src="{{ '/assets/img/' | append: page.photo_link | relative_url }}" width="400" height="400">
+	<div class="container-artwork" name="display" style="margin-top: 50px;">
+
+		<div  name="image">
+			<img src="{{ '/assets/img/' | append: page.photo_link | relative_url }}">
 		</div>
-		<div class="span5" name="data" style="margin-top:-20px">
+
+		<div class="" name="data" >
 			<p><h2>{{ page.title }}</h2></p>
 
 			{% assign artist = site.artists | find: "name", page.artist %}
@@ -34,6 +36,7 @@ body_id: artwork
 			</br>
 			{% endif %}
 		</div>
+
 	</div>
 </div>
 

@@ -4,7 +4,12 @@
 
 @import "minima/skins/{{ site.minima.skin | default: 'classic' }}", "minima/initialize", "bootstrap-responsive", "bootstrap";
 
-body {
+
+/*
+————————— global 
+*/
+body 
+{
   overflow-x: hidden;
 }
 
@@ -13,6 +18,25 @@ hr
   margin : 20px 8% 0 8%;
 }
 
+.wrapper {
+  width:  100vw;
+  max-width: none;
+  box-sizing: border-box;
+}
+
+.row-fluid {
+  display: flex;
+  padding: 20px 8% 20px 8%;
+  box-sizing: border-box;
+}
+
+.row-fluid .span10 {
+  width: 100%;
+}
+
+/*
+————————— nav
+*/
 .navbar
 {
     display:flex;
@@ -61,48 +85,33 @@ hr
   padding: 0;
 }
 
-.page-content {
+/*
+————————— base.html
+*/
+
+.page-content 
+{
   padding-top: 45px;
 }
-.home_links a {
+
+/*
+————————— index.html
+*/
+.home_links a 
+{
   color: #ab0000;
 }
-#home .page-content {
+
+#home .page-content 
+{
   padding: 0;
   width: 100%;
-}
-
-#artwork .translations {
-  padding: 10px;
-  background: #f2f2f2;
-  text-align: center;
-}
-
-.wrapper {
-  width:  100vw;
-  max-width: none;
-  box-sizing: border-box;
-}
-
-.nav-margin
-{
-  margin-top: 40px;
 }
 
 #home .page-content .wrapper,
 #artwork .page-content .wrapper {
   padding: 0;
   margin: 0;
-}
-
-.row-fluid {
-  display: flex;
-  padding: 20px 8% 20px 8%;
-  box-sizing: border-box;
-}
-
-.row-fluid .span10 {
-  width: 100%;
 }
 
 .artworks.thumbnails {
@@ -128,19 +137,39 @@ hr
   padding: 30px 0 0 0;
 }
 
+.nav-margin
+{
+  margin-top: 40px;
+}
+
 /*
 ————————— artwork.html
 */
+.container-artwork
+{
+  display: flex;
+  gap : 30px;
+}
+
+.container-artwork  img
+{
+  min-width:400px;
+}
+
+
 
 .row-fluid.container-translations
 {
   gap: 30px;
   justify-content: center;
+  box-sizing: border-box;
 }
-
 
 .translations
 {
+  padding: 10px;
+  background: #f2f2f2;
+  text-align: center;
   width: 20%;
   min-width:150px;
 }
@@ -224,5 +253,28 @@ hr
   .artworks.thumbnails {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .container-artwork
+  {
+    flex-direction: column;
+  }
+
+  .container-artwork  img
+  {
+    min-width:100%;
+  }
+
+  .translations
+  {
+    min-width: none;
+    width:none;
+  }
+
+  .sketch-wrapper #sketch
+  {
+    min-width:unset;
+    max-width:unset;
+  }
+
 }
 
