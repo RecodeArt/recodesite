@@ -106,7 +106,7 @@ body_id: home
                     {% assign artist = site.artists | find: "name", a.artist %}
                     {% assign artist_url = "/artists/" | append: artist.slug | relative_url %}
                     <div class="thumbnail">
-                        <a href="{{ url }}"><img src="{{ '/assets/img/' | append: a.photo_link | relative_url }}"></a>
+                        <a href="{{ artwork_url }}"><img src="{{ '/assets/img/' | append: a.photo_link | relative_url }}"></a>
                         <div class="caption">
                             <a href="{{ artwork_url }}" class="artwork">{{ a.title }}</a>
                             <a href="{{ artist_url }}" class="artist">{{ a.artist }}</a>
