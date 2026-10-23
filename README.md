@@ -15,5 +15,5 @@ docker compose up --build
 ```
 
 ## Changelog
-
+- 2026-10 : Each translation page integrates p5js / pde files. Possible to add more languages in the future.
 - 2026-03 : Rewrite the website to be able to host it on any free static hosting provider (netlify, vercel, github pages, cloudflare, ...)
