@@ -6,12 +6,12 @@ permalink: /translations
 
 <div class="row-fluid">
   <ul>
-    {% for t in site.p5js %}
+    {% for t in site.data.translations_index %}
     {% assign artwork = site.artworks | find: "slug", t.artwork_slug %}
     {% unless artwork and artwork.restricted %}
       {% assign artwork_url = "/artworks/" | append: artwork.slug | relative_url %}
       <li>
-        {% assign url = "/translations/p5js/" | append: t.slug | relative_url %}
+        {% assign url = t.url | relative_url %}
         <a href="{{ url }}">{{ t.title }}</a> by {{t.translator }} &dash; {{ t.category }} translation of <a href="{{ artwork_url }}">{{ artwork.title }}</a>
       </li>
     {% endunless %}

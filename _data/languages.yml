@@ -1,0 +1,16 @@
+# Languages a translation can be written in. One folder per language in
+# _translations/<id>/. The order below is the order of the dropdown; the first
+# language available for a translation is the one displayed by default.
+#
+# name:     label displayed in the dropdown
+# cm:       CodeMirror syntax highlighting (javascript, java, python)
+# runnable: the code is executed in the page to render the sketch
+#           (only one language should be runnable)
+p5js:
+  name: p5.js
+  cm: javascript
+  runnable: true
+pde:
+  name: Processing
+  cm: java
+  runnable: false

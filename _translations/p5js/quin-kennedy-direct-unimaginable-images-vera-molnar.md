@@ -1,5 +1,4 @@
-## /\*
-
+---
 title: "Unimaginable Images"
 translator: "Quin Kennedy"
 translator_url: "http://kamikazepirate.com/"
@@ -9,11 +8,9 @@ category: "direct"
 description: ""
 runs_in_browser: true
 p5_version: 1.11.10
-
 ---
 
 <script type="text/javascript">
-*/
 /*
 Part of the ReCode Project(http://recodeproject.com)
   Based on "Unimaginable Images" by Vera Molnar

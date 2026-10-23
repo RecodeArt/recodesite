@@ -4,22 +4,22 @@ body_id: artwork
 ---
 
 {% assign document = site.data.volumes | find: "id", page.source_id  %}
-{% assign translations = site.p5js | where: "artwork_slug", page.slug %}
+{% assign translations = site.data.translations_index | where: "artwork_slug", page.slug %}
 {% if page.also_in %}
   {% assign duplicates = site.artworks | where: "canonical", page.slug %}
   {% for dup in duplicates %}
-    {% assign dup_t = site.p5js | where: "artwork_slug", dup.slug %}
+    {% assign dup_t = site.data.translations_index | where: "artwork_slug", dup.slug %}
     {% assign translations = translations | concat: dup_t %}
   {% endfor %}
 {% elsif page.canonical %}
   {% assign master = site.artworks | where: "slug", page.canonical | first %}
   {% if master %}
-    {% assign master_t = site.p5js | where: "artwork_slug", master.slug %}
+    {% assign master_t = site.data.translations_index | where: "artwork_slug", master.slug %}
     {% assign translations = translations | concat: master_t %}
     {% assign siblings = site.artworks | where: "canonical", master.slug %}
     {% for s in siblings %}
       {% unless s.slug == page.slug %}
-        {% assign sib_t = site.p5js | where: "artwork_slug", s.slug %}
+        {% assign sib_t = site.data.translations_index | where: "artwork_slug", s.slug %}
         {% assign translations = translations | concat: sib_t %}
       {% endunless %}
     {% endfor %}
@@ -90,7 +90,7 @@ body_id: artwork
 			<h5>Direct Translation</h5>
 			{% for t in translations %}
 			{% if t.category == "direct" %}
-			  {% assign translation_url = "/translations/p5js/" | append: t.slug | relative_url %}
+			  {% assign translation_url = t.url | relative_url %}
 				<p><a href="{{ translation_url }}">{{ t.translator }}</a></p>
 			{% endif %}
 			{% endfor %}
@@ -99,7 +99,7 @@ body_id: artwork
 			<h5>Experimental</h5>
 			{% for t in translations %}
 			{% if t.category == 'experimental' %}
-			  {% assign translation_url = "/translations/p5js/" | append: t.slug | relative_url %}
+			  {% assign translation_url = t.url | relative_url %}
 				<p><a href="{{ translation_url }}">{{ t.translator }}</a></p>
 			{% endif %}
 			{% endfor %}

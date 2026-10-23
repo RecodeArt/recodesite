@@ -1,0 +1,249 @@
+---
+layout: base
+body_id: translation
+---
+
+{%- include translator.html -%}
+
+{% assign artwork = site.artworks | find: "slug", page.artwork_slug %}
+{% if artwork.restricted %}
+<div class="row-fluid">
+<p>This translation is currently restricted.</p>
+</div>
+{% else %}
+<div class="sketch-wrapper row-fluid">
+  <div id="sketch">
+  </div>
+
+  <div id="jscode">
+    {%- assign runner = page.languages | where: "runnable", true | first -%}
+    <div class="code-toolbar">
+      <select id="lang-select" aria-label="Language"{% if page.languages.size < 2 %} disabled{% endif %}>
+        {%- for lang in page.languages %}
+        <option value="{{ lang.id }}">{{ lang.name }}</option>
+        {%- endfor %}
+      </select>
+      <div class="buttons">
+        <button id="play">Play</button>
+        <button id="stop">Stop</button>
+        <button id="copy" title="Copy code" aria-label="Copy code"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></button>
+      </div>
+    </div>
+    {%- for lang in page.languages %}
+    <textarea class="code-source" data-lang="{{ lang.id }}" data-cm="{{ lang.cm }}" style="display:none" readonly>{{ lang.script | escape }}</textarea>
+    <div class="code-editor" data-lang="{{ lang.id }}" hidden></div>
+    {%- endfor %}
+  </div>
+</div>
+
+<script type="module">
+
+    import { EditorView, basicSetup } from "https://esm.sh/codemirror@6.0.1";
+
+    // CodeMirror syntax highlighting, loaded on demand (see "cm" in _data/languages.yml)
+    const cmModules = {
+      javascript: ["https://esm.sh/@codemirror/lang-javascript@6.1.7", "javascript"],
+      java: ["https://esm.sh/@codemirror/lang-java@6.0.1", "java"],
+      python: ["https://esm.sh/@codemirror/lang-python@6.1.6", "python"]
+    };
+
+    // Language that is executed to render the sketch ('' if none)
+    const runnerId = "{{ runner.id }}";
+    const defaultId = "{{ page.languages.first.id }}";
+
+    const editors = {};
+    let currentId = defaultId;
+
+    async function createEditor(source)
+    {
+      const id = source.dataset.lang;
+      const extensions = [basicSetup];
+      const cm = cmModules[source.dataset.cm];
+      if (cm)
+      {
+        try
+        {
+          const mod = await import(cm[0]);
+          extensions.push(mod[cm[1]]());
+        }
+        catch (e) { console.warn("No syntax highlighting for " + id, e); }
+      }
+      editors[id] = new EditorView({
+        doc: source.value,
+        extensions: extensions,
+        parent: document.querySelector('.code-editor[data-lang="' + id + '"]')
+      });
+    }
+
+    // navigator.clipboard is only available in secure contexts (https, localhost):
+    // fall back to execCommand otherwise (e.g. http://0.0.0.0:4000)
+    async function copyText(text)
+    {
+      try
+      {
+        if (navigator.clipboard && window.isSecureContext)
+        {
+          await navigator.clipboard.writeText(text);
+          return true;
+        }
+      }
+      catch (e) { /* try the fallback */ }
+
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      let ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      ta.remove();
+      return ok;
+    }
+
+    function selectLanguage(id)
+    {
+      currentId = id;
+      document.getElementById("lang-select").value = id;
+      document.querySelectorAll(".code-editor").forEach(el => { el.hidden = (el.dataset.lang !== id); });
+      // The editor may have been laid out while hidden
+      if (editors[id]) editors[id].requestMeasure();
+
+      // Play / Stop only make sense for the executed language
+      const runnable = (id === runnerId);
+      document.getElementById("play").hidden = !runnable;
+      document.getElementById("stop").hidden = !runnable;
+
+      // Keep the language in the url (default language => clean url)
+      const url = new URL(window.location.href);
+      url.hash = (id === defaultId) ? "" : id;
+      history.replaceState(null, "", url);
+    }
+
+    window.addEventListener('load', async () =>
+    {
+      // Create editors (one per language, edits are kept when switching)
+      const sources = Array.from(document.querySelectorAll(".code-source"));
+      await Promise.all(sources.map(createEditor));
+      sources.forEach(el => el.remove());
+
+      // Install UI
+      document.getElementById("lang-select").addEventListener("change", e => selectLanguage(e.target.value));
+      document.getElementById("play").addEventListener("click", _=>{ playSketch(editors[runnerId].state.doc.toString()) });
+      document.getElementById("stop").addEventListener("click", _=>{ removeSketch() });
+      document.getElementById("copy").addEventListener("click", async e =>
+      {
+        const btn = e.currentTarget;
+        const iconCopy = btn.dataset.icon = btn.dataset.icon || btn.innerHTML;
+        const iconOk = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+        if (!await copyText(editors[currentId].state.doc.toString())) return;
+        btn.innerHTML = iconOk;
+        setTimeout(_=>{ btn.innerHTML = iconCopy }, 1500);
+      });
+
+      // Initial language (#pde)
+      const requested = window.location.hash.slice(1);
+      selectLanguage(editors[requested] ? requested : defaultId);
+      window.addEventListener("hashchange", _=>{
+        const id = window.location.hash.slice(1);
+        if (editors[id]) selectLanguage(id);
+      });
+
+      // Play sketch (always the executed language, whatever is displayed)
+      if (runnerId) playSketch(editors[runnerId].state.doc.toString());
+      else document.getElementById("sketch").innerHTML = "<p>No preview available for this translation.</p>";
+    })
+
+    function playSketch(code)
+    {
+      // Remove iframe ( = clean container)
+      let container = document.getElementById('sketch');
+      container.innerHTML='';
+
+      // Create iframe
+      const iframe = document.createElement("iframe");
+      iframe.setAttribute('id', 'sketch-iframe');
+      container.appendChild(iframe);
+
+      // Iframe onload => resize canvas
+      iframe.addEventListener("load", () =>
+      {
+
+        // No margin / padding on iframe document
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        doc.body.style.margin = "0";
+        doc.body.style.padding = "0";
+
+        // Check when canvas is here
+        /*
+        const observer = new MutationObserver(() =>
+        {
+            const canvas = doc.querySelector("canvas");
+            if (canvas)
+            {
+              console.log('here')
+              observer.disconnect();
+              resizeSketch(iframe,canvas);
+            }
+          });
+
+        observer.observe(doc.body, { childList: true, subtree: true });
+         */
+      });
+
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+
+
+      doc.open();
+      doc.write(code ? `
+      <html>
+      <head>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/{{ page.p5_version | default: '1.11.10' }}/p5.min.js"><\/script>
+      </head>
+      <body>
+          <script>
+          const observer = new MutationObserver(() =>
+          {
+            const c = document.querySelector("canvas");
+            if (c)
+            {
+              console.log('canvas creation observed');
+              observer.disconnect();
+              window.parent.resizeSketch();
+            }
+          });
+          observer.observe(document.body, { childList: true, subtree: true });
+          window.addEventListener("resize", _=>{window.parent.resizeSketch()});
+          <\/script>
+
+        <script>${code}<\/script>
+      </body>
+      </html>
+      ` : ``);
+      doc.close();
+    }
+
+    function removeSketch()
+    {
+      let container = document.getElementById('sketch');
+      container.innerHTML='';
+    }
+
+    window.resizeSketch = ()=>
+    {
+      let iframe = document.getElementById("sketch-iframe");
+      let canvas = iframe.contentWindow.document.querySelector("canvas");
+      let w= canvas.clientHeight, h=canvas.clientHeight;
+      const ratio = h / w;
+
+      // Set the iframe height
+      iframe.height = w * ratio + "px";
+
+      // Adjust canvas display
+      canvas.style.width = "100%";
+      canvas.style.height = "";
+    }
+
+</script>
+
+{% endif %}

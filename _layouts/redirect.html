@@ -1,0 +1,15 @@
+{%- assign target = page.redirect_to | relative_url | append: "#" | append: page.redirect_lang -%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <link rel="canonical" href="{{ page.redirect_to | absolute_url }}">
+    <meta http-equiv="refresh" content="0; url={{ target }}">
+    <meta name="robots" content="noindex">
+    <script>window.location.replace("{{ target }}");</script>
+  </head>
+  <body>
+    <p>Redirecting to <a href="{{ target }}">{{ page.title }}</a>…</p>
+  </body>
+</html>
